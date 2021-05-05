@@ -30,6 +30,14 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	return $ret;
 
 	}
+
+	public function insertTodo()
+	{
+	$ret=mysqli_query($this->dbh,"insert into todolist (todo)
+	select trashName from trash where id='" . $_GET["restore"] . "'");
+	return $ret;
+
+	}
 	
 	
 //Data read Function
@@ -71,8 +79,4 @@ public function delete($rid)
 	}
 
 }
-
-
-
-
 ?>
